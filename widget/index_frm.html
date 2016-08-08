@@ -1,0 +1,76 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>WinA</title>
+    <link rel="stylesheet" type="text/css" href="css/api.css" />
+    <link rel="stylesheet" type="text/css" href="css/box.css" />
+    <script type="text/javascript" src="script/public.js"></script>
+    <style>
+    	p{
+    		color:#999;
+    		padding:5px;
+    	}
+    </style>
+	<script type="text/javascript">
+	    
+		var camera = null;
+		apiready = function(){
+	    	camera = api.require('camera');
+	    }
+
+		function takePho(){
+			var param = {percentage:100,compressOption:100,amount:6};
+			var resultCallback = function(ret, err){
+				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
+			}
+	        camera.startTakePicForResult(param, resultCallback);
+		}
+		function takeRec(){
+			var param = {};
+			var resultCallback = function(ret, err){
+				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
+			}
+	        camera.startRecorderForResult(param, resultCallback);
+		}
+		function takeAbu(){
+			var param = {amount:6};
+			var resultCallback = function(ret, err){
+				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
+			}
+	        camera.startAlbumsForResult(param, resultCallback);
+		}
+		
+	</script>
+</head>
+<body>
+    <div id="wrap">
+        <div id="main">
+			<div class="clickbtn" tapmode="active" onclick="takePho()" >拍照</div>
+				<div style="font-size:0.8em;">返回值</div>
+            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
+            </div>
+            <br>
+            <br>
+			<br>
+			<br>
+			<div class="clickbtn" tapmode="active" onclick="takeRec()" >短视频</div>
+				<div style="font-size:0.8em;">返回值</div>
+            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
+            </div>
+            <br>
+            <br>
+			<br>
+			<br>
+			<div class="clickbtn" tapmode="active" onclick="takeAbu()" >相册</div>
+				<div style="font-size:0.8em;">返回值</div>
+            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
+            </div>
+            <br>
+            <br>	
+		</div>
+	</div>
+</body>
+</html>

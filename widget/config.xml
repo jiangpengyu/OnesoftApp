@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="A6911922720601"  version="0.0.1">
+    <name>一方城市</name>
+    <description>
+        Example For APICloud.
+    </description>
+    <author email="developer@apicloud.com" href="http://www.apicloud.com">
+        Developer
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    <preference name="bounces" value="true" />
+    <preference name="customRefreshHeader" value="cusHeader" />
+</widget>
