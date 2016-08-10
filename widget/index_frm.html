@@ -27,14 +27,14 @@
 			var resultCallback = function(ret, err){
 				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
 			}
-	        drop.show(param, resultCallback);
+	        drop.startShowMenu(param, resultCallback);
 		}
 		function hideDrop(){
 			var param = {};
 			var resultCallback = function(ret, err){
 				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
 			}
-	        drop.hide(param, resultCallback);
+	        drop.startHideMenu(param, resultCallback);
 		}
 		function takePho(){
 			var param = {percentage:100,compressOption:100,amount:6};
