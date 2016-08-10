@@ -45,7 +45,7 @@
 	        camera.startAlbumsForResult(param, resultCallback);
 		}
 		function show(){
-			var param = {amount:6};
+			var param = {x:0,y:0,w:0,h:0};
 			var resultCallback = function(ret, err){
 				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
 			}
