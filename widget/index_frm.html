@@ -16,13 +16,26 @@
     </style>
 	<script type="text/javascript">
 	    
+		var drop = null;
 		var camera = null;
-		var menu = null;
 		apiready = function(){
+	    	drop = api.require('dropMenu');
 	    	camera = api.require('camera');
-	    	menu = api.require('dropMenu');
 	    }
-
+		function show(){
+			var param = {x:0,y:0,w:0,h:0};
+			var resultCallback = function(ret, err){
+				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
+			}
+	        drop.show(param, resultCallback);
+		}
+		function hide(){
+			var param = {};
+			var resultCallback = function(ret, err){
+				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
+			}
+	        drop.hide(param, resultCallback);
+		}
 		function takePho(){
 			var param = {percentage:100,compressOption:100,amount:6};
 			var resultCallback = function(ret, err){
@@ -44,26 +57,29 @@
 			}
 	        camera.startAlbumsForResult(param, resultCallback);
 		}
-		function show(){
-			var param = {x:0,y:0,w:0,h:0};
-			var resultCallback = function(ret, err){
-				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
-			}
-	        menu.show(param, resultCallback);
-		}
-		function hide(){
-			var param = {amount:6};
-			var resultCallback = function(ret, err){
-				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
-			}
-	        menu.hide(param, resultCallback);
-		}
 		
 	</script>
 </head>
 <body>
     <div id="wrap">
         <div id="main">
+        	<br>
+				<div class="clickbtn" tapmode="active" onclick="show()" >显示</div>
+				<div style="font-size:0.8em;">返回值</div>
+            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
+            </div>
+            <br>
+            <br>
+			<br>
+			<br>
+			<div class="clickbtn" tapmode="active" onclick="hide()" >隐藏</div>
+				<div style="font-size:0.8em;">返回值</div>
+            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
+            </div>
+            <br>
+            <br>
+			<br>
+			<br>
 			<div class="clickbtn" tapmode="active" onclick="takePho()" >拍照</div>
 				<div style="font-size:0.8em;">返回值</div>
             	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
@@ -81,22 +97,6 @@
 			<br>
 			<br>
 			<div class="clickbtn" tapmode="active" onclick="takeAbu()" >相册</div>
-				<div style="font-size:0.8em;">返回值</div>
-            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
-            </div>
-            <br>
-            <br>
-			<br>
-			<br>
-			<div class="clickbtn" tapmode="active" onclick="show()" >显示</div>
-				<div style="font-size:0.8em;">返回值</div>
-            	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
-            </div>
-            <br>
-            <br>
-			<br>
-			<br>
-			<div class="clickbtn" tapmode="active" onclick="hide()" >隐藏</div>
 				<div style="font-size:0.8em;">返回值</div>
             	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
             </div>
