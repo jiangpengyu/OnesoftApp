@@ -22,14 +22,14 @@
 	    	drop = api.require('dropMenu');
 	    	camera = api.require('camera');
 	    }
-		function show(){
+		function showDrop(){
 			var param = {x:0,y:0,w:0,h:0};
 			var resultCallback = function(ret, err){
 				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
 			}
 	        drop.show(param, resultCallback);
 		}
-		function hide(){
+		function hideDrop(){
 			var param = {};
 			var resultCallback = function(ret, err){
 				document.getElementById("takepic_result").innerHTML = JSON.stringify(ret);
@@ -64,7 +64,7 @@
     <div id="wrap">
         <div id="main">
         	<br>
-				<div class="clickbtn" tapmode="active" onclick="show()" >显示</div>
+				<div class="clickbtn" tapmode="active" onclick="showDrop()" >显示</div>
 				<div style="font-size:0.8em;">返回值</div>
             	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
             </div>
@@ -72,7 +72,7 @@
             <br>
 			<br>
 			<br>
-			<div class="clickbtn" tapmode="active" onclick="hide()" >隐藏</div>
+			<div class="clickbtn" tapmode="active" onclick="hideDrop()" >隐藏</div>
 				<div style="font-size:0.8em;">返回值</div>
             	<div id="takepic_result" style="width:100%;word-wrap: break-word;word-break: normal;">
             </div>
